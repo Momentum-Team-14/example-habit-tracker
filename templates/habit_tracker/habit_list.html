@@ -6,7 +6,7 @@
   <h2 class="title is-size-2">Habits You're Building<h2>
   <ul class="habit-list">
     {% for habit in habits %}
-    <li class="habit-item"><a href="">{{habit.name}}</a></li>
+    <li class="habit-item"><a href={% url 'habit_detail' habit_pk=habit.pk %}>{{habit.name}}</a></li>
     {% endfor %}
   <ul>
 </section>

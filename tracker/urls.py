@@ -21,6 +21,7 @@ urlpatterns = [
     path("", views.habit_list, name="habit_list"),
     path("habits/", views.habit_list, name="habit_list"),
     path("habits/new", views.habit_new, name="habit_new"),
+    path("habits/<int:habit_pk>", views.habit_detail, name="habit_detail"),
     path("admin/", admin.site.urls),
     path("auth/", include("allauth.urls")),
 ]
