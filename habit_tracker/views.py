@@ -1,3 +1,4 @@
+import datetime
 from django.shortcuts import get_object_or_404, render, redirect
 from django.contrib.auth.decorators import login_required
 from .forms import HabitForm
@@ -30,3 +31,15 @@ def habit_detail(request, habit_pk):
     habit = get_object_or_404(Habit, pk=habit_pk)
 
     return render(request, "habit_tracker/habit_detail.html", {"habit": habit})
+
+
+def habit_daily_record(request, habit_pk):
+    habit = get_object_or_404(Habit, pk=habit_pk)
+    record_date = datetime.date.today()
+    daily_record, _ = habit.records.get_or_create(date=record_date)
+
+    return render(
+        request,
+        "habit_tracker/habit_results.html",
+        {"habit": habit, "daily_record": daily_record},
+    )
