@@ -32,12 +32,14 @@ class Habit(BaseModel):
 
 class DailyRecord(BaseModel):
     habit = models.ForeignKey(Habit, on_delete=models.CASCADE, related_name="records")
-    result = models.PositiveSmallIntegerField()
-    date = models.DateField(auto_now_add=True)
+    result = models.PositiveSmallIntegerField(null=True, blank=True)
+    date = models.DateField()
 
     class Meta:
         constraints = [
-            models.UniqueConstraint(["date", "habit"], name="unique_for_habit_and_date")
+            models.UniqueConstraint(
+                fields=["date", "habit"], name="unique_for_habit_and_date"
+            )
         ]
 
     def __str__(self):
