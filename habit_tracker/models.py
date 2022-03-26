@@ -41,7 +41,7 @@ class DailyRecord(BaseModel):
         ]
 
     def __str__(self):
-        return f"Record for {self.habit.name}: {self.result} {self.habit.unit} on {str(self.date)}"
+        return f"Record for {self.habit.name}: {self.result} on {str(self.date)}"
 
     def __repr__(self):
         return f"<Record for {self.habit.name} pk={self.pk}?>"
