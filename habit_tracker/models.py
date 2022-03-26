@@ -30,7 +30,7 @@ class Habit(BaseModel):
         return f"<Habit {self.name} pk={self.pk}>"
 
 
-class Record(BaseModel):
+class DailyRecord(BaseModel):
     habit = models.ForeignKey(Habit, on_delete=models.CASCADE, related_name="records")
     result = models.PositiveSmallIntegerField()
     date = models.DateField(auto_now_add=True)
