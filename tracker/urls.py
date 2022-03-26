@@ -18,7 +18,8 @@ from django.urls import path, include
 from habit_tracker import views
 
 urlpatterns = [
-    path("", views.home, name="home"),
+    path("", views.habit_list, name="habit_list"),
+    path("habits/", views.habit_list, name="habit_list"),
     path("admin/", admin.site.urls),
     path("auth/", include("allauth.urls")),
 ]
