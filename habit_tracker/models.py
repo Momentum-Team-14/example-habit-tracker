@@ -46,4 +46,4 @@ class DailyRecord(BaseModel):
         return f"Record for {self.habit.name}: {self.result} on {str(self.date)}"
 
     def __repr__(self):
-        return f"<Record for {self.habit.name} pk={self.pk}?>"
+        return f"<Record for {self.habit.name} pk={self.pk}>"

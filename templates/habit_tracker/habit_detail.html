@@ -11,4 +11,7 @@
   {% endfor %}
 </ul>
 </section>
+<div class="block section">
+  <a href={% url 'habit_daily_record' habit_pk=habit.pk %} class="button is-link">Record results for this habit</a>
+</div>
 {% endblock content %}

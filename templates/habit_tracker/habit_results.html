@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="section habit-results">
+  <h1 class="title is-size-1">Results for <span class="has-text-info">{{habit.name}}</span></h1>
+  <div class="block content">
+    <a href={% url 'habit_detail' habit_pk=habit.pk %} class="link is-info is-size-5"><ion-icon name="chevron-back-outline"></ion-icon> See all results for this habit</a>
+  </div>
+  <h3 class="title is-size-3">{{daily_record.date}}</h3>
+  {% if daily_record.result %}
+    <section class="section habit-daily-record">
+        <div class="daily-record block">
+            <p>{{daily_record.date}} results {{daily_record.result}}</p>
+            <p>Habit Target: {{habit.goal}}
+        </div>
+        <div class="box block has-background-success has-text-weight-bold">
+          {% if daily_record.result == habit.goal %}
+          You met your goal! 🎉
+          {% elif daily_record.result > habit.goal %}
+          You exceeded your goal! Way to go! 🎉🎉
+          {% endif %}
+          <div>
+    </section>
+{% endif %}
+  <section class='results-form'>
+    <h3 class="is-size-3 has-text-color-success">Record your results for today</h3>
+    <h4 class="is-size-4">Or choose a different day</h4>
+    {% include 'habit_tracker/_daily_record_form.html' %}
+  <section>
+</section>
+
+{% endblock content %}
+{% block js %}
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+{% endblock js %}

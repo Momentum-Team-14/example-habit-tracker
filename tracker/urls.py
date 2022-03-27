@@ -27,6 +27,11 @@ urlpatterns = [
         views.habit_daily_record,
         name="habit_daily_record",
     ),
+    path(
+        "results/<int:record_pk>",
+        views.habit_daily_record,
+        name="habit_daily_record_update",
+    ),
     path("admin/", admin.site.urls),
     path("auth/", include("allauth.urls")),
 ]

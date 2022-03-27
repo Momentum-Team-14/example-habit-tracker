@@ -1,0 +1,19 @@
+<div class="block level">
+  <form action={% url 'habit_daily_record_update' record_pk=daily_record.pk  %} method="POST">
+    {% csrf_token %}
+    {% for field in form %}
+    <div class="field">
+        {{ field.errors }}
+        <label class="label" id={{ field.id_for_label }}>{{field.label}}</label>
+        <div class="control">
+          {{ field }}
+        </div>
+      </div>
+    {% endfor %}
+    <div class="field">
+      <div class="control">
+        <button class="button is-primary">Record My Results</button>
+      </div>
+    </div>
+  </form>
+</div>
