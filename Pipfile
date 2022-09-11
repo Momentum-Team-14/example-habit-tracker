@@ -9,6 +9,7 @@ django-environ = "*"
 django-extensions = "*"
 django-allauth = "*"
 psycopg2-binary = "*"
+django-debug-toolbar = "*"
 
 [dev-packages]
 flake8 = "*"
