@@ -13,13 +13,15 @@
             <p>{{daily_record.date}} results {{daily_record.result}}</p>
             <p>Habit Target: {{habit.goal}}
         </div>
+        {% if daily_record.result == habit.goal %}
         <div class="box block has-background-success has-text-weight-bold">
-          {% if daily_record.result == habit.goal %}
           You met your goal! 🎉
+        </div>
           {% elif daily_record.result > habit.goal %}
+          <div class="box block has-background-success has-text-weight-bold">
           You exceeded your goal! Way to go! 🎉🎉
-          {% endif %}
           <div>
+          {% endif %}
     </section>
 {% endif %}
   <section class='results-form'>
@@ -30,7 +32,4 @@
 </section>
 
 {% endblock content %}
-{% block js %}
-<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-{% endblock js %}
+
