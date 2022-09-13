@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     "allauth.account",
     "allauth.socialaccount",
     "allauth.socialaccount.providers.github",
+    "rest_framework",
     "habit_tracker",
 ]
 
@@ -161,4 +162,10 @@ SOCIALACCOUNT_PROVIDERS = {
             "read:org",
         ],
     }
+}
+
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticatedOrReadOnly'
+    ]
 }

@@ -10,6 +10,7 @@ django-extensions = "*"
 django-allauth = "*"
 psycopg2-binary = "*"
 django-debug-toolbar = "*"
+djangorestframework = "*"
 
 [dev-packages]
 flake8 = "*"
